@@ -2,12 +2,16 @@ package Model;
 
 public class Entrega {
     private long id;
-    private String encomenda;
+    private Encomenda encomenda;
+    private String remetente;
+    private String destinatario;
     private Endereco endereco;
 
-    public Entrega(long id, String encomenda, Endereco endereco) {
+    public Entrega(long id, Encomenda encomenda, String remetente, String destinatario, Endereco endereco) {
         this.id = id;
         this.encomenda = encomenda;
+        this.remetente = remetente;
+        this.destinatario = destinatario;
         this.endereco = endereco;
     }
 
@@ -19,12 +23,28 @@ public class Entrega {
         this.id = id;
     }
 
-    public String getEncomenda() {
+    public Encomenda getEncomenda() {
         return encomenda;
     }
 
-    public void setProduto(String encomenda) {
+    public void setEncomenda(Encomenda encomenda) {
         this.encomenda = encomenda;
+    }
+
+    public String getRemetente() {
+        return remetente;
+    }
+
+    public void setRemetente(String remetente) {
+        this.remetente = remetente;
+    }
+
+    public String getDestinatario() {
+        return destinatario;
+    }
+
+    public void setDestinatario(String destinatario) {
+        this.destinatario = destinatario;
     }
 
     public Endereco getEndereco() {
