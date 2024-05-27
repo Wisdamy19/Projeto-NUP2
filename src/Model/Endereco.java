@@ -4,10 +4,10 @@ public class Endereco {
     private String cidade;
     private String estado;
     private String rua;
-    private int numero;
+    private String numero;
     private String CEP;
 
-    public Endereco(String cidade, String estado, String rua, int numero, String CEP) {
+    public Endereco(String cidade, String estado, String rua, String numero, String CEP) {
         this.cidade = cidade;
         this.estado = estado;
         this.rua = rua;
@@ -39,11 +39,11 @@ public class Endereco {
         this.rua = rua;
     }
 
-    public int getNumero() {
+    public String getNumero() {
         return numero;
     }
 
-    public void setNumero(int numero) {
+    public void setNumero(String numero) {
         this.numero = numero;
     }
 
@@ -53,5 +53,16 @@ public class Endereco {
 
     public void setCEP(String CEP) {
         this.CEP = CEP;
+    }
+
+    @Override
+    public String toString() {
+        return "Endereco{" +
+                "cidade='" + cidade + '\'' +
+                ", estado='" + estado + '\'' +
+                ", rua='" + rua + '\'' +
+                ", numero='" + numero + '\'' +
+                ", CEP='" + CEP + '\'' +
+                '}';
     }
 }

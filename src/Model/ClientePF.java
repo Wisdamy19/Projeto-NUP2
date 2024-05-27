@@ -7,4 +7,12 @@ public class ClientePF extends Cliente {
         super(id, nome, telefone, endereco);
         this.CPF = CPF;
     }
+
+    public String getCPF() {
+        return CPF;
+    }
+
+    public void setCPF(String CPF) {
+        this.CPF = CPF;
+    }
 }
