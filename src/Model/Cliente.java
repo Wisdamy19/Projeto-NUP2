@@ -1,23 +1,26 @@
 package Model;
 
 public abstract class Cliente {
-    protected long id;
+    protected int id;
     protected String nome;
     protected String telefone;
-    protected Endereco endereco;
+    protected String endereco;
 
-    public Cliente(long id, String nome, String telefone, Endereco endereco) {
+    public Cliente() {
+    }
+
+    public Cliente(int id, String nome, String telefone, String endereco) {
         this.id = id;
         this.nome = nome;
         this.telefone = telefone;
         this.endereco = endereco;
     }
 
-    public long getId() {
+    public int getId() {
         return id;
     }
 
-    public void setId(long id) {
+    public void setId(int id) {
         this.id = id;
     }
 
@@ -37,11 +40,11 @@ public abstract class Cliente {
         this.telefone = telefone;
     }
 
-    public Endereco getEndereco() {
+    public String getEndereco() {
         return endereco;
     }
 
-    public void setEndereco(Endereco endereco) {
+    public void setEndereco(String endereco) {
         this.endereco = endereco;
     }
 }

@@ -2,12 +2,15 @@ package Model;
 
 public class ClientePJ extends Cliente{
     private String CNPJ;
-    private String razaoSocial;
 
-    public ClientePJ(long id, String nome, String telefone, Endereco endereco, String CNPJ, String razaoSocial) {
+    public ClientePJ() {
+        super();
+    }
+
+    public ClientePJ(int id, String nome, String telefone, String endereco, String CNPJ) {
         super(id, nome, telefone, endereco);
         this.CNPJ = CNPJ;
-        this.razaoSocial = razaoSocial;
+
     }
 
     public String getCNPJ() {
@@ -16,13 +19,5 @@ public class ClientePJ extends Cliente{
 
     public void setCNPJ(String CNPJ) {
         this.CNPJ = CNPJ;
-    }
-
-    public String getRazaoSocial() {
-        return razaoSocial;
-    }
-
-    public void setRazaoSocial(String razaoSocial) {
-        this.razaoSocial = razaoSocial;
     }
 }
