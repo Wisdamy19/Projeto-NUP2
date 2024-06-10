@@ -1,8 +1,8 @@
 package Service;
 
-import Dao.EncomendaDao;
+
 import Dao.RotaDao;
-import Model.Encomenda;
+
 import Model.Rota;
 
 import java.sql.ResultSet;

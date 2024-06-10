@@ -1,7 +1,7 @@
 package Service;
 
 import Dao.FuncionarioDao;
-import Model.Encomenda;
+
 import Model.Funcionario;
 
 import java.sql.ResultSet;

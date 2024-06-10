@@ -1,8 +1,8 @@
 package Service;
 
-import Dao.ClientePFDao;
+
 import Dao.EncomendaDao;
-import Model.ClientePF;
+
 import Model.Encomenda;
 
 import java.sql.ResultSet;

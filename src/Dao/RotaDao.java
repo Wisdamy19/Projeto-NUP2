@@ -1,7 +1,7 @@
 package Dao;
 
 import JBDC.Conexao;
-import Model.Encomenda;
+
 import Model.Rota;
 
 import java.sql.PreparedStatement;
