@@ -27,14 +27,16 @@ public class VeiculoDao {
     }
     public void inserir(Veiculo veiculo){
         try {
-            String SQL = "INSERT INTO veiculo(motorista, placa, capacidade, rota)" +
-                    "VALUES (?, ?, ?, ?)";
+            String SQL = "INSERT INTO veiculo(nome, motorista, placa, capacidade, rota, status)" +
+                    "VALUES (?, ?, ?, ?, ?, ?)";
             ps = conexao.getConn().prepareStatement(SQL);
 
-            ps.setString(1, veiculo.getMotorista());
-            ps.setString(2, veiculo.getPlaca());
-            ps.setDouble(3, veiculo.getCapacidade());
-            ps.setString(4, veiculo.getRota());
+            ps.setString(1, veiculo.getNome());
+            ps.setString(2, veiculo.getMotorista());
+            ps.setString(3, veiculo.getPlaca());
+            ps.setDouble(4, veiculo.getCapacidade());
+            ps.setString(5, veiculo.getRota());
+
 
             ps.executeUpdate();
             ps.close();
@@ -59,15 +61,17 @@ public class VeiculoDao {
     }
     public void editar(Veiculo veiculo){
         try {
-            String SQL = "UPDATE veiculo SET motorista=?, placa=?, capacidade=?, rota=? WHERE id=?";
+            String SQL = "UPDATE veiculo SET nome=?, motorista=?, placa=?, capacidade=?, rota=?, status=? WHERE id=?";
 
             ps = conexao.getConn().prepareStatement(SQL);
 
-            ps.setString(1, veiculo.getMotorista());
-            ps.setString(2, veiculo.getPlaca());
-            ps.setDouble(3, veiculo.getCapacidade());
-            ps.setString(4, veiculo.getRota());
-            ps.setInt(5, veiculo.getId());
+            ps.setString(1, veiculo.getNome());
+            ps.setString(2, veiculo.getMotorista());
+            ps.setString(3, veiculo.getPlaca());
+            ps.setDouble(4, veiculo.getCapacidade());
+            ps.setString(5, veiculo.getRota());
+            ps.setString(6, veiculo.getStatus());
+            ps.setInt(7, veiculo.getId());
 
             ps.executeUpdate();
             ps.close();
@@ -75,4 +79,27 @@ public class VeiculoDao {
             ex.printStackTrace();
         }
     }
+
+    public ResultSet listarId(Veiculo veiculo){
+        try {
+            PreparedStatement ps = conexao.getConn().prepareStatement("SELECT * FROM veiculo WHERE id=?");
+
+            ps.setInt(1, veiculo.getId());
+            ResultSet rs = ps.executeQuery();
+            if (rs != null){
+                return rs;
+            }
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }
+        return null;
+    }
+
+
+
+
+
+
+
+
 }

@@ -1,14 +1,16 @@
 package Program;
 
-import Model.ClientePF;
-import Model.ClientePJ;
-import Model.Encomenda;
-import Model.Veiculo;
+import Model.*;
 import Service.*;
 
+import java.sql.Date;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-
+import java.text.SimpleDateFormat;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+import java.time.format.DateTimeFormatterBuilder;
+import java.util.Scanner;
 
 
 public class Program {
@@ -18,29 +20,80 @@ public class Program {
 
         //ClientePFService clientePFService = new ClientePFService();
         //ClientePJService clientePJService = new ClientePJService();
-        EncomendaService encomendaService = new EncomendaService();
+        //EncomendaService encomendaService = new EncomendaService();
         //FuncionarioService funcionarioService = new FuncionarioService();
         //VeiculoService veiculoService = new VeiculoService();
-        //RotaService rotaService = new RotaService();
+        RotaService rotaService = new RotaService();
+
+
+
 
 /*
-        Encomenda e1 = new Encomenda();
+        Veiculo veiculo = new Veiculo();
+        veiculo.setId(2);
+        Rota e1 = new Rota();
         //Inserir
-        e1.setNome("Iphone 13 256GB");
-        e1.setRemetente("Carlos");
-        e1.setDestinatario("João");
-        e1.setEndereco("Rua dos bobos, numero 0");
+        e1.setDestino("Rio de Janeiro-RJ");
+        e1.setDataPartida(LocalDateTime.of(2024, 6, 12, 9, 0, 0));
+        e1.setDataChegada(LocalDateTime.of(2024, 6, 12, 9, 0, 0));
+        e1.setStatus("Em transporte.");
+        e1.setVeiculo(veiculo);
 
 
-
-        boolean message = encomendaService.inserir(e1);
-        if (message){
-            System.out.println(GREEN + "Cliente inserido com sucesso");
-        } else {
-            System.out.println(RED + "Erro ao inserir o cliente. ");
-        }
+        rotaService.inserir(e1);
 
  */
+
+
+/*
+        //listar por id
+        Veiculo veiculo = new Veiculo();
+
+        veiculo.setId(2);
+        ResultSet rs = veiculoService.listarId(veiculo);
+        while(rs.next()){
+            System.out.println(rs.getString("id"));
+            System.out.println(rs.getString("Nome"));
+            System.out.println(rs.getString("Motorista"));
+            System.out.println(rs.getString("Placa"));
+            System.out.println(rs.getDouble("Capacidade"));
+            System.out.println(rs.getString("Rota"));
+
+            System.out.println("===============================");
+        }
+
+
+ */
+        //listar por id
+        Rota rota = new Rota();
+
+        rota.setId(3);
+        ResultSet rs = rotaService.listarId(rota);
+        while(rs.next()){
+            System.out.println(rs.getString("id"));
+            System.out.println(rs.getString("Destino"));
+            System.out.println(rs.getString("Data_partida"));
+            System.out.println(rs.getString("Data_chegada"));
+            System.out.println(rs.getString("Status"));
+            System.out.println(rs.getString("Veiculo_id"));
+
+            System.out.println("===============================");
+        }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

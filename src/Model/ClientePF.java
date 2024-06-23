@@ -3,6 +3,7 @@ package Model;
 public class ClientePF extends Cliente {
     private String CPF;
 
+
     public ClientePF() {
         super();
     }

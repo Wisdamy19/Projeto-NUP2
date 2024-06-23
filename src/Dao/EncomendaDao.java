@@ -27,14 +27,15 @@ public class EncomendaDao {
     }
     public void inserir(Encomenda encomenda){
         try {
-            String SQL = "INSERT INTO encomenda(nome, remetente, destinatario, endereco)" +
-                    "VALUES (?, ?, ?, ?)";
+            String SQL = "INSERT INTO encomenda(nome, remetente, destinatario, endereco, peso)" +
+                    "VALUES (?, ?, ?, ?, ?)";
             ps = conexao.getConn().prepareStatement(SQL);
 
             ps.setString(1, encomenda.getNome());
             ps.setString(2, encomenda.getRemetente());
             ps.setString(3, encomenda.getDestinatario());
             ps.setString(4, encomenda.getEndereco());
+            ps.setDouble(5, encomenda.getPeso());
 
             ps.executeUpdate();
             ps.close();
@@ -59,7 +60,7 @@ public class EncomendaDao {
     }
     public void editar(Encomenda encomenda){
         try {
-            String SQL = "UPDATE encomenda SET nome=?, remetente=?, destinatario=?, endereco=? WHERE id=?";
+            String SQL = "UPDATE encomenda SET nome=?, remetente=?, destinatario=?, endereco=?, peso=? WHERE id=?";
 
             ps = conexao.getConn().prepareStatement(SQL);
 
@@ -67,7 +68,8 @@ public class EncomendaDao {
             ps.setString(2, encomenda.getRemetente());
             ps.setString(3, encomenda.getDestinatario());
             ps.setString(4, encomenda.getEndereco());
-            ps.setInt(5, encomenda.getId());
+            ps.setDouble(5, encomenda.getPeso());
+            ps.setInt(6, encomenda.getId());
 
             ps.executeUpdate();
             ps.close();

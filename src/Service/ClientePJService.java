@@ -17,7 +17,7 @@ public class ClientePJService {
     public boolean inserir(ClientePJ clientePJ){
         if (clientePJ.getNome() == "" || clientePJ.getTelefone() == "" || clientePJ.getEndereco() == "" || clientePJ.getCNPJ() == "")
             return false;
-        if (clientePJ.getCNPJ().length() < 14 || clientePJ.getCNPJ().length() > 14){
+        if (clientePJ.getCNPJ().length() != 14){
             return false;
         }
         clientePJDao.inserir(clientePJ);

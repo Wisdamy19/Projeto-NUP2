@@ -3,12 +3,15 @@ package Service;
 
 import Dao.RotaDao;
 
+import Dao.VeiculoDao;
 import Model.Rota;
+import Model.Veiculo;
 
 import java.sql.ResultSet;
 
 public class RotaService {
     private RotaDao rotaDao;
+    private VeiculoDao veiculoDao;
     public RotaService(){
         rotaDao = new RotaDao();
     }
@@ -30,10 +33,21 @@ public class RotaService {
         return true;
     }
     public boolean editar(Rota rota){
-        if (rota.getDestino() == ""  || rota.getStatus() == "")
+        if (rota.getDestino() == "" || rota.getStatus() == "")
             return false;
 
         rotaDao.editar(rota);
         return true;
     }
+
+    public ResultSet listarId(Rota rota){
+        return rotaDao.listarId(rota);
+    }
+
+
+
+
+
+
+
 }

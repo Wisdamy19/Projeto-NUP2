@@ -3,6 +3,7 @@ package Dao;
 import JBDC.Conexao;
 
 import Model.Rota;
+import Model.Veiculo;
 
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -25,14 +26,16 @@ public class RotaDao {
     }
     public void inserir(Rota rota){
         try {
-            String SQL = "INSERT INTO rota(destino, data_partida, data_chegada, status)" +
-                    "VALUES (?, ?, ?, ?)";
+            String SQL = "INSERT INTO rota(destino, data_partida, data_chegada, status, veiculo_id)" +
+                    "VALUES (?, ?, ?, ?, ?)";
             ps = conexao.getConn().prepareStatement(SQL);
 
             ps.setString(1, rota.getDestino());
-            ps.setDate(2,new java.sql.Date(rota.getDataPartida().getTime()));
-            ps.setDate(3, new java.sql.Date(rota.getDataChegada().getTime()));
+            ps.setObject(2, rota.getDataPartida());
+            ps.setObject(3, rota.getDataChegada());
             ps.setString(4, rota.getStatus());
+            ps.setInt(5, rota.getVeiculo().getId());
+
 
 
             ps.executeUpdate();
@@ -62,8 +65,8 @@ public class RotaDao {
             ps = conexao.getConn().prepareStatement(SQL);
 
             ps.setString(1, rota.getDestino());
-            ps.setDate(2, new java.sql.Date(rota.getDataPartida().getTime()));
-            ps.setDate(3, new java.sql.Date(rota.getDataChegada().getTime()));
+            ps.setObject(2, rota.getDataPartida());
+            ps.setObject(3, rota.getDataChegada());
             ps.setString(4, rota.getStatus());
             ps.setInt(5, rota.getId());
 
@@ -73,4 +76,21 @@ public class RotaDao {
             ex.printStackTrace();
         }
     }
+
+    public ResultSet listarId(Rota rota){
+        try {
+            PreparedStatement ps = conexao.getConn().prepareStatement("SELECT * FROM rota WHERE id=?");
+
+            ps.setInt(1, rota.getId());
+            ResultSet rs = ps.executeQuery();
+            if (rs != null){
+                return rs;
+            }
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }
+        return null;
+    }
+
+
 }

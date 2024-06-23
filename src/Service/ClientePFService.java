@@ -16,14 +16,25 @@ public class ClientePFService {
     public ResultSet listar(){
         return clientePFDao.listar();
     }
+    public static final String RED = "\u001B[31m";
+    public static final String GREEN = "\u001B[32m";
     public boolean inserir(ClientePF clientePF){
-        if (clientePF.getNome() == "" || clientePF.getTelefone() == "" || clientePF.getEndereco() == "" || clientePF.getCPF() == "")
+        if (clientePF.getNome() == "" || clientePF.getTelefone() == "" || clientePF.getEndereco() == "" || clientePF.getCPF() == "") {
+            System.out.println(RED + "Insira o CPF.");
             return false;
-        if (clientePF.getCPF().length() < 11 || clientePF.getCPF().length() > 11){
+        }
+        if (clientePF.getCPF().length() != 11){
+            System.out.println(RED + "Insira um CPF com apenas os 11 dígitos.");
+           return false;
+        }
+        String cpf = clientePF.getCPF();
+        if (cpf.contains(".") || cpf.contains("-")){
+            System.out.println(RED + "Insira apenas numeros");
             return false;
         }
 
         clientePFDao.inserir(clientePF);
+        System.out.println(GREEN + "Cliente inserido com sucesso.");
         return true;
     }
 

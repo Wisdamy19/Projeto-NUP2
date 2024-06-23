@@ -15,7 +15,7 @@ public class VeiculoService {
         return veiculoDao.listar();
     }
     public boolean inserir(Veiculo veiculo){
-        if (veiculo.getMotorista() == "" || veiculo.getPlaca() == "" || veiculo.getCapacidade() == 0 || veiculo.getRota() == "")
+        if (veiculo.getNome() == "" || veiculo.getMotorista() == "" || veiculo.getPlaca() == "" || veiculo.getCapacidade() == 0 || veiculo.getRota() == "")
             return false;
 
         veiculoDao.inserir(veiculo);
@@ -37,4 +37,12 @@ public class VeiculoService {
         veiculoDao.editar(veiculo);
         return true;
     }
+
+    public ResultSet listarId(Veiculo veiculo){
+        return veiculoDao.listarId(veiculo);
+    }
+
+
+
+
 }

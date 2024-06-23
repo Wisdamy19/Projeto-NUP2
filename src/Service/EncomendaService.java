@@ -17,7 +17,7 @@ public class EncomendaService {
         return encomendaDao.listar();
     }
     public boolean inserir(Encomenda encomenda){
-        if (encomenda.getNome() == "" || encomenda.getRemetente() == "" || encomenda.getDestinatario() == "" || encomenda.getEndereco() == "")
+        if (encomenda.getNome() == "" || encomenda.getRemetente() == "" || encomenda.getDestinatario() == "" || encomenda.getEndereco() == "" || encomenda.getPeso() == 0)
             return false;
         encomendaDao.inserir(encomenda);
         return true;
@@ -32,7 +32,7 @@ public class EncomendaService {
     }
 
     public boolean editar(Encomenda encomenda){
-        if (encomenda.getNome() == "" || encomenda.getRemetente() == "" || encomenda.getDestinatario() == "" || encomenda.getEndereco() == "")
+        if (encomenda.getNome() == "" || encomenda.getRemetente() == "" || encomenda.getDestinatario() == "" || encomenda.getEndereco() == "" || encomenda.getPeso() == 0)
             return false;
 
         encomendaDao.editar(encomenda);

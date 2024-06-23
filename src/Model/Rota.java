@@ -1,23 +1,25 @@
 package Model;
 
-import java.util.Date;
-
 public class Rota {
     private int id;
     private String destino;
-    private Date dataPartida;
-    private Date dataChegada;
+    private java.time.LocalDateTime dataPartida;
+    private java.time.LocalDateTime dataChegada;
     private String status;
+    private Veiculo veiculo;
+
 
     public Rota() {
     }
 
-    public Rota(int id, String destino, Date dataPartida, Date dataChegada, String status) {
+    public Rota(int id, String destino, java.time.LocalDateTime dataPartida, java.time.LocalDateTime dataChegada, String status, Veiculo veiculo) {
         this.id = id;
         this.destino = destino;
         this.dataPartida = dataPartida;
         this.dataChegada = dataChegada;
         this.status = status;
+        this.veiculo = veiculo;
+
     }
 
     public int getId() {
@@ -36,19 +38,19 @@ public class Rota {
         this.destino = destino;
     }
 
-    public Date getDataPartida() {
+    public java.time.LocalDateTime getDataPartida() {
         return dataPartida;
     }
 
-    public void setDataPartida(Date dataPartida) {
+    public void setDataPartida(java.time.LocalDateTime dataPartida) {
         this.dataPartida = dataPartida;
     }
 
-    public Date getDataChegada() {
+    public java.time.LocalDateTime getDataChegada() {
         return dataChegada;
     }
 
-    public void setDataChegada(Date dataChegada) {
+    public void setDataChegada(java.time.LocalDateTime dataChegada) {
         this.dataChegada = dataChegada;
     }
 
@@ -58,5 +60,13 @@ public class Rota {
 
     public void setStatus(String status) {
         this.status = status;
+    }
+
+    public Veiculo getVeiculo() {
+        return veiculo;
+    }
+
+    public void setVeiculo(Veiculo veiculo) {
+        this.veiculo = veiculo;
     }
 }
