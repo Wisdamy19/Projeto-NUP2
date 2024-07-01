@@ -79,6 +79,21 @@ public class EncomendaDao {
             ex.printStackTrace();
         }
     }
+    public double listarPesoEncomendas(Veiculo veiculo){
+        double totalPeso = 0.0;
+        String query = "SELECT sum(peso) AS total_peso FROM encomenda WHERE veiculo_id = ?";
+        try (PreparedStatement ps = conexao.getConn().prepareStatement(query)) {
+            ps.setInt(1, veiculo.getId());
+            ResultSet rs = ps.executeQuery();
+            if (rs.next()) {
+                totalPeso = rs.getDouble("total_peso");
+            }
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+        return totalPeso;
+    }
+    /*
     public ResultSet listarPesoEncomendas(Veiculo veiculo){
         try {
             PreparedStatement ps = conexao.getConn().prepareStatement(" SELECT sum(peso) AS total_peso FROM encomenda WHERE veiculo_id =?;");
@@ -93,5 +108,7 @@ public class EncomendaDao {
         }
         return null;
     }
+
+     */
 
 }

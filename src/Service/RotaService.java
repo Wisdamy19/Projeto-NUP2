@@ -45,7 +45,6 @@ public class RotaService {
     }
     public ResultSet listarRotaVeiculo(Veiculo veiculo){
         return rotaDao.listarRotaVeiculo(veiculo);
-
     }
 
 

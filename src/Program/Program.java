@@ -20,10 +20,10 @@ public class Program {
 
         //ClientePFService clientePFService = new ClientePFService();
         //ClientePJService clientePJService = new ClientePJService();
-        EncomendaService encomendaService = new EncomendaService();
+        //EncomendaService encomendaService = new EncomendaService();
         //FuncionarioService funcionarioService = new FuncionarioService();
         //VeiculoService veiculoService = new VeiculoService();
-        //RotaService rotaService = new RotaService();
+        RotaService rotaService = new RotaService();
 
 
 
@@ -93,9 +93,9 @@ public class Program {
          */
 
         //listar rota-viagem
-/*
+
         Veiculo veiculo = new Veiculo();
-        veiculo.setId(8);
+        veiculo.setId(9);
         ResultSet rs = rotaService.listarRotaVeiculo(veiculo);
 
         while(rs.next()){
@@ -107,10 +107,13 @@ public class Program {
             System.out.println(rs.getString("Rota"));
             System.out.println(rs.getString("Status"));
 
-            System.out.println("===============================");
         }
 
- */
+
+
+
+
+
 
 
 
@@ -118,20 +121,31 @@ public class Program {
 
 
 /*
+        // listar peso-encomenda contida num veiculo
         Veiculo veiculo = new Veiculo();
         veiculo.setId(3);
-        ResultSet rs = encomendaService.listarPesoEncomendas(veiculo);
-        while(rs.next()){
-            System.out.println((rs.getDouble("total_peso")));
+        double peso = encomendaService.listarPesoEncomendas(veiculo);
+        System.out.println("Peso: " + peso);
 
-        }
 
  */
 
+
+
+
+/*
         Veiculo veiculo = new Veiculo();
         veiculo.setId(3);
         veiculo.setCapacidade(1000.0);
         encomendaService.verificarCapacidadeVeiculo(veiculo);
+
+
+ */
+
+
+
+
+
 
 
 

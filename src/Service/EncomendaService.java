@@ -40,20 +40,27 @@ public class EncomendaService {
         encomendaDao.editar(encomenda);
         return true;
     }
-    public ResultSet listarPesoEncomendas(Veiculo veiculo){
+    public double listarPesoEncomendas(Veiculo veiculo){
         return encomendaDao.listarPesoEncomendas(veiculo);
     }
-    public void verificarCapacidadeVeiculo(Veiculo veiculo) throws SQLException {
-        ResultSet rs = encomendaDao.listarPesoEncomendas(veiculo);
-        if (rs.next()) {
-            double totalPeso = rs.getDouble("total_peso");
-            double capacidade = veiculo.getCapacidade();
-            if (totalPeso >= veiculo.getCapacidade()) {
-                System.out.println("O peso das encomendas listadas " + totalPeso + " é maior que a capacidade " + capacidade);
+
+    public boolean verificarCapacidadeVeiculo(Veiculo veiculo) {
+        double rs = encomendaDao.listarPesoEncomendas(veiculo);
+        double totalPeso = rs;
+        double capacidade = veiculo.getCapacidade();
+        int id = veiculo.getId();
+            if (totalPeso > veiculo.getCapacidade()) {
+                System.out.println("O Veiculo de id " + id + ", tem o peso das encomendas " + totalPeso + " maior que a capacidade " + capacidade);
+                return false;
             } else {
-                System.out.println("Tudo certo");
+                System.out.println("Peso dentro do limite da capacidade.");
             }
-        }
+
+        return true;
     }
+
+
+
+
 
 }
