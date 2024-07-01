@@ -7,17 +7,19 @@ public class Encomenda {
     private String destinatario;
     private String endereco;
     private double peso;
+    private Veiculo veiculo;
 
     public Encomenda() {
     }
 
-    public Encomenda(int id, String nome, String remetente, String destinatario, String endereco, double peso) {
+    public Encomenda(int id, String nome, String remetente, String destinatario, String endereco, double peso, Veiculo veiculo) {
         this.id = id;
         this.nome = nome;
         this.remetente = remetente;
         this.destinatario = destinatario;
         this.endereco = endereco;
         this.peso = peso;
+        this.veiculo = veiculo;
     }
 
     public int getId() {
@@ -66,5 +68,13 @@ public class Encomenda {
 
     public void setPeso(double peso) {
         this.peso = peso;
+    }
+
+    public Veiculo getVeiculo() {
+        return veiculo;
+    }
+
+    public void setVeiculo(Veiculo veiculo) {
+        this.veiculo = veiculo;
     }
 }

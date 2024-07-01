@@ -8,10 +8,10 @@ import Model.Rota;
 import Model.Veiculo;
 
 import java.sql.ResultSet;
+import java.sql.SQLException;
 
 public class RotaService {
     private RotaDao rotaDao;
-    private VeiculoDao veiculoDao;
     public RotaService(){
         rotaDao = new RotaDao();
     }
@@ -43,9 +43,10 @@ public class RotaService {
     public ResultSet listarId(Rota rota){
         return rotaDao.listarId(rota);
     }
+    public ResultSet listarRotaVeiculo(Veiculo veiculo){
+        return rotaDao.listarRotaVeiculo(veiculo);
 
-
-
+    }
 
 
 

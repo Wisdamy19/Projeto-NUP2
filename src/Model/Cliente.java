@@ -8,7 +8,6 @@ public abstract class Cliente {
 
     public Cliente() {
     }
-
     public Cliente(int id, String nome, String telefone, String endereco) {
         this.id = id;
         this.nome = nome;

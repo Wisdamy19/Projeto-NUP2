@@ -1,13 +1,16 @@
 package Service;
 
+import Dao.RotaDao;
 import Dao.VeiculoDao;
 
 import Model.Veiculo;
 
 import java.sql.ResultSet;
+import java.sql.SQLException;
 
 public class VeiculoService {
     private VeiculoDao veiculoDao;
+    private RotaDao rotaDao;
     public VeiculoService(){
         veiculoDao = new VeiculoDao();
     }
@@ -41,6 +44,10 @@ public class VeiculoService {
     public ResultSet listarId(Veiculo veiculo){
         return veiculoDao.listarId(veiculo);
     }
+
+
+
+
 
 
 

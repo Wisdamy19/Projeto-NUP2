@@ -92,5 +92,21 @@ public class RotaDao {
         return null;
     }
 
+    public ResultSet listarRotaVeiculo(Veiculo veiculo){
+        try {
+            PreparedStatement ps = conexao.getConn().prepareStatement("SELECT r.id, v.* FROM rota r INNER JOIN veiculo v ON r.veiculo_id = v.id WHERE r.id =?;");
+
+            ps.setInt(1, veiculo.getId());
+            ResultSet rs = ps.executeQuery();
+            if (rs != null){
+                return rs;
+            }
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }
+        return null;
+    }
+
+
 
 }

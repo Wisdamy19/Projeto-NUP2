@@ -2,6 +2,7 @@ package Dao;
 
 import JBDC.Conexao;
 import Model.Encomenda;
+import Model.Veiculo;
 
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -27,8 +28,8 @@ public class EncomendaDao {
     }
     public void inserir(Encomenda encomenda){
         try {
-            String SQL = "INSERT INTO encomenda(nome, remetente, destinatario, endereco, peso)" +
-                    "VALUES (?, ?, ?, ?, ?)";
+            String SQL = "INSERT INTO encomenda(nome, remetente, destinatario, endereco, peso, veiculo_id)" +
+                    "VALUES (?, ?, ?, ?, ?, ?)";
             ps = conexao.getConn().prepareStatement(SQL);
 
             ps.setString(1, encomenda.getNome());
@@ -36,6 +37,7 @@ public class EncomendaDao {
             ps.setString(3, encomenda.getDestinatario());
             ps.setString(4, encomenda.getEndereco());
             ps.setDouble(5, encomenda.getPeso());
+            ps.setInt(6, encomenda.getVeiculo().getId());
 
             ps.executeUpdate();
             ps.close();
@@ -77,4 +79,19 @@ public class EncomendaDao {
             ex.printStackTrace();
         }
     }
+    public ResultSet listarPesoEncomendas(Veiculo veiculo){
+        try {
+            PreparedStatement ps = conexao.getConn().prepareStatement(" SELECT sum(peso) AS total_peso FROM encomenda WHERE veiculo_id =?;");
+
+            ps.setInt(1, veiculo.getId());
+            ResultSet rs = ps.executeQuery();
+            if (rs != null){
+                return rs;
+            }
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }
+        return null;
+    }
+
 }

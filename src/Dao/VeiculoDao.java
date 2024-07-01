@@ -36,6 +36,7 @@ public class VeiculoDao {
             ps.setString(3, veiculo.getPlaca());
             ps.setDouble(4, veiculo.getCapacidade());
             ps.setString(5, veiculo.getRota());
+            ps.setString(6, veiculo.getStatus());
 
 
             ps.executeUpdate();

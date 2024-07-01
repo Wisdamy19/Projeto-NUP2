@@ -20,10 +20,10 @@ public class Program {
 
         //ClientePFService clientePFService = new ClientePFService();
         //ClientePJService clientePJService = new ClientePJService();
-        //EncomendaService encomendaService = new EncomendaService();
+        EncomendaService encomendaService = new EncomendaService();
         //FuncionarioService funcionarioService = new FuncionarioService();
         //VeiculoService veiculoService = new VeiculoService();
-        RotaService rotaService = new RotaService();
+        //RotaService rotaService = new RotaService();
 
 
 
@@ -41,8 +41,17 @@ public class Program {
 
 
         rotaService.inserir(e1);
-
  */
+        /*
+        ClientePF e1 = new ClientePF();
+        e1.setNome("Rogério");
+        e1.setTelefone("(81) 9999-9999");
+        e1.setEndereco("Rua dos bobos, numero 0");
+        e1.setCPF("12345678901");
+        clientePFService.inserir(e1);
+
+         */
+
 
 
 /*
@@ -64,6 +73,7 @@ public class Program {
 
 
  */
+        /*
         //listar por id
         Rota rota = new Rota();
 
@@ -79,6 +89,72 @@ public class Program {
 
             System.out.println("===============================");
         }
+
+         */
+
+        //listar rota-viagem
+/*
+        Veiculo veiculo = new Veiculo();
+        veiculo.setId(8);
+        ResultSet rs = rotaService.listarRotaVeiculo(veiculo);
+
+        while(rs.next()){
+            System.out.println(rs.getInt("id"));
+            System.out.println(rs.getString("Nome"));
+            System.out.println(rs.getString("Motorista"));
+            System.out.println(rs.getString("Placa"));
+            System.out.println(rs.getDouble("Capacidade"));
+            System.out.println(rs.getString("Rota"));
+            System.out.println(rs.getString("Status"));
+
+            System.out.println("===============================");
+        }
+
+ */
+
+
+
+
+
+
+/*
+        Veiculo veiculo = new Veiculo();
+        veiculo.setId(3);
+        ResultSet rs = encomendaService.listarPesoEncomendas(veiculo);
+        while(rs.next()){
+            System.out.println((rs.getDouble("total_peso")));
+
+        }
+
+ */
+
+        Veiculo veiculo = new Veiculo();
+        veiculo.setId(3);
+        veiculo.setCapacidade(1000.0);
+        encomendaService.verificarCapacidadeVeiculo(veiculo);
+
+
+
+
+
+
+
+
+
+
+
+/*
+        ResultSet rs = clientePFService.listar();
+        while(rs.next()) {
+            System.out.println(rs.getString("Nome"));
+            System.out.println(rs.getString("Telefone"));
+            System.out.println(rs.getString("Endereco"));
+            System.out.println(rs.getString("CPF"));
+        }
+
+ */
+
+
 
 
 
@@ -105,6 +181,7 @@ public class Program {
 
 
 /*
+
         //Listar
 
         ResultSet rs = encomendaService.listar();
@@ -118,8 +195,10 @@ public class Program {
             System.out.println("===============================");
         }
 
-
  */
+
+
+
 
 
 
